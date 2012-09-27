@@ -43,7 +43,7 @@ public class LCDataHandeler {
 			 } catch (SQLException e) {
 				  LCLogger.error(e.getMessage());
 			 }			 
-			// if not succeded getting the data, go to next method 
+			// if not succeded getting the data, go to next connection method 
 			if (succeded == false) {
 				LCLogger.error("Could not connect to database, switching to flatfile");
 			} else {
