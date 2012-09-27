@@ -1,0 +1,24 @@
+name: LCCore
+main: github.Lucycraft.LCCore.LCCore
+loadbefore: ["LCModuleEconomy", "LCModuleKit"]
+version: 0.0.2a
+authors: [cskiwi, thisisboris]
+description: After a couple of months of hosting a bukkit server, we decided to create our very own plugin, based upon the way we play minecraft.
+commands:
+    LucyCraft:
+        description: Basic command to access help
+        usage: |
+          Example: /<command> : Shows the basic help page.
+    LC:
+        description: Basic command to acces help, short version
+        usage: |
+          Example: /<command> : Shows the basic help page.
+    LucyAdmin:
+        description: LucycraftCore admin commands.
+        usage: |
+          Example: /<command> : Shows the admin page with statistics etc.
+    La:
+        description: LucycraftCore admin commands, short version
+        usage: |
+          Example: /<command> : Shows the admin page with statistics etc.
+    
