@@ -17,7 +17,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
- * Lucycraft - A world enhancing plugin for Bukkit
+ * Lucycraft - A world enhancing plugin for Bukkit.
  *
  * @authors Thisisboris and cskiwi
  */
