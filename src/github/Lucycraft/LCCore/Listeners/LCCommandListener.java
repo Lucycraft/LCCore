@@ -52,15 +52,20 @@ public class LCCommandListener implements CommandExecutor {
         	} else {
         		if (isPlayer(sender)){
         			if (is(args[0], "Modules")) {
-        				sendMessage(sender, prefix + colorizeText("Current active modules:", ChatColor.GREEN));
-        				for (int i=0; i < LCCore.getPluginlist().size(); i++)
-        					if (i != LCCore.getPluginlist().size()-1)
-        						message += LCCore.getPluginlist().get(i) + ", ";
-        					else
-        						message += LCCore.getPluginlist().get(i);
-        				
-    						sendMessage(sender, prefix + message);
-        				handled = true;
+        				if (is(args[1], "install")) {
+        					// install script + install database
+        					// if no extra arguments included show availible for install
+        				} else {
+	        				sendMessage(sender, prefix + colorizeText("Current active modules:", ChatColor.GREEN));
+	        				for (int i=0; i < LCCore.getPluginlist().size(); i++)
+	        					if (i != LCCore.getPluginlist().size()-1)
+	        						message += LCCore.getPluginlist().get(i) + ", ";
+	        					else
+	        						message += LCCore.getPluginlist().get(i);
+	        				
+	    						sendMessage(sender, prefix + message);
+	        				handled = true;
+        				}
         			}        			
         		}
         	}
