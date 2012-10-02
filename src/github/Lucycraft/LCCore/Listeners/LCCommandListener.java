@@ -55,6 +55,10 @@ public class LCCommandListener implements CommandExecutor {
         				if (is(args[1], "install")) {
         					// install script + install database
         					// if no extra arguments included show availible for install
+        					// just writing some code
+        					if (is(args[2], "LC")) {
+        						// do some stuff, I pressed save but no changes in github 
+        					}
         				} else {
 	        				sendMessage(sender, prefix + colorizeText("Current active modules:", ChatColor.GREEN));
 	        				for (int i=0; i < LCCore.getPluginlist().size(); i++)
