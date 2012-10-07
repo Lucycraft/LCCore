@@ -16,7 +16,7 @@ public class LCDataHandeler {
 	private static int DB_Port = 3306;
 	private static String DB_DatabaseName = "Lucycraft_TestEnviroment";
 	private static String DB_Username = "root";
-	private static String DB_Password = "<password>";
+	private static String DB_Password = "Cskiwi147963";
 	
 	/**
 	 * if you want to use an custom database type for some reason,
@@ -36,7 +36,8 @@ public class LCDataHandeler {
 				 conn = DriverManager.getConnection("jdbc:mysql://"+DB_IP+":"+DB_Port+"/"+ DB_DatabaseName, DB_Username, DB_Password);
 				 QuerryStatement = conn.prepareStatement(query);
 				 QuerryStatement.execute();
-				 resultSet = Results2Array(QuerryStatement.getResultSet());
+				 if (QuerryStatement.getResultSet() != null)
+					 resultSet = Results2Array(QuerryStatement.getResultSet());
 				 QuerryStatement.close();
 				 conn.close();
 				 succeded = true;					
@@ -58,6 +59,10 @@ public class LCDataHandeler {
 	public static ArrayList<ArrayList<Object>> getData(String querry){		
 		// if using default connection type
 		return getData(querry, conType);		
+	}
+	public static void executeQuerry(String querry){
+		// Just execute a get data but don't return anything 
+		getData(querry);
 	}
 	private static ArrayList<ArrayList<Object>> Results2Array(ResultSet rs) throws SQLException {
 	    ResultSetMetaData metaData = rs.getMetaData();

@@ -52,14 +52,8 @@ public class LCCommandListener implements CommandExecutor {
         	} else {
         		if (isPlayer(sender)){
         			if (is(args[0], "Modules")) {
-        				if (is(args[1], "install")) {
-        					// install script + install database
-        					// if no extra arguments included show availible for install
-        					// just writing some code
-        					if (is(args[2], "LC")) {
-        						// do some stuff, I pressed save but no changes in github 
-        					}
-        				} else {
+        				// extra arguments are given
+        				if (args.length > 0) {        	
 	        				sendMessage(sender, prefix + colorizeText("Current active modules:", ChatColor.GREEN));
 	        				for (int i=0; i < LCCore.getPluginlist().size(); i++)
 	        					if (i != LCCore.getPluginlist().size()-1)
@@ -69,6 +63,15 @@ public class LCCommandListener implements CommandExecutor {
 	        				
 	    						sendMessage(sender, prefix + message);
 	        				handled = true;
+        				} else {
+        					if (is(args[1], "install")) {
+        						if (args.length > 1) {
+        							// install given modules
+        							install("RandomPlugin");
+        						} else {
+        							// show installed scripts + can install modules
+        						}
+        					}
         				}
         			}        			
         		}
@@ -118,5 +121,12 @@ public class LCCommandListener implements CommandExecutor {
     
     private String colorizeText(String text, ChatColor color) {
         return color + text + ChatColor.WHITE;
+    }
+    
+    private boolean install(String plugin){
+    	
+    	// installl
+    	
+    	return false;
     }
 }

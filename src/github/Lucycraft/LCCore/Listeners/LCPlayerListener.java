@@ -1,6 +1,9 @@
 package github.Lucycraft.LCCore.Listeners;
 
+import java.util.ArrayList;
+
 import github.Lucycraft.LCCore.LCCore;
+import github.Lucycraft.LCCore.Includes.LCDataHandeler;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,6 +25,8 @@ public class LCPlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		// int index = LCCore.Onlineplayerlist.size();
+		Player player = event.getPlayer();
+		LCCommandListener command = LCCore.GetcommandManager();
 				
 		if (LCCore.Onlineplayerlist.size() > 0){
 			String players = "";
@@ -30,13 +35,20 @@ public class LCPlayerListener implements Listener {
 				if (i + 1 != LCCore.Onlineplayerlist.size())
 					players += ", ";
 			}
-			
-			LCCore.GetcommandManager().sendMessageToPlayer("The following people are online: " + players, event.getPlayer());
+			command.sendMessageToPlayer("The following people are online: " + players, player);
 		} else {
-			LCCore.GetcommandManager().sendMessageToPlayer("You're feeling lonely", event.getPlayer());
+			command.sendMessageToPlayer("You're feeling lonely", player);
+		}			
+		LCCore.Onlineplayerlist.add(player);	
+		
+		// checking if I have him in database
+		ArrayList<ArrayList<Object>> resultset = LCDataHandeler.getData("SELECT * FROM users WHERE Name = '" + player.getName() + "';");
+		if (resultset == null || resultset.size() == 0){
+			LCDataHandeler.executeQuerry("INSERT INTO users (Name)VALUES('" + player.getName() + "');");
+			command.sendMessageToPlayer("Welcome to the server", player);
+		} else {
+			command.sendMessageToPlayer("Welcome back " + player.getName(), player);
 		}
-			
-		LCCore.Onlineplayerlist.add(event.getPlayer());	
 			
 	}
 	@EventHandler
