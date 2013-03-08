@@ -1,7 +1,7 @@
 name: LCCore
 main: github.Lucycraft.LCCore.LCCore
 loadbefore: ["LCModuleEconomy", "LCModuleKit"]
-version: 0.0.2a
+version: 0.0.2b
 authors: [cskiwi, thisisboris]
 description: After a couple of months of hosting a bukkit server, we decided to create our very own plugin, based upon the way we play minecraft.
 commands:
